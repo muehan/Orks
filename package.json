@@ -1,0 +1,23 @@
+{
+  "name": "orks",
+  "version": "0.0.1",
+  "description": "Orks is a webcomponent library created with stencil, your for fun!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muehan/Orks.git"
+  },
+  "keywords": [
+    "web-components",
+    "stencil"
+  ],
+  "author": "muehan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muehan/Orks/issues"
+  },
+  "homepage": "https://github.com/muehan/Orks#readme"
+}
