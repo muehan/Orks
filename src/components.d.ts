@@ -11,6 +11,13 @@ import '@stencil/core';
 
 export namespace Components {
 
+  interface OrkDatepicker {
+    'name': string;
+  }
+  interface OrkDatepickerAttributes extends StencilHTMLAttributes {
+    'name'?: string;
+  }
+
   interface MyFirstComponent {
     'name': string;
   }
@@ -21,13 +28,21 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'OrkDatepicker': Components.OrkDatepicker;
     'MyFirstComponent': Components.MyFirstComponent;
   }
 
   interface StencilIntrinsicElements {
+    'ork-datepicker': Components.OrkDatepickerAttributes;
     'my-first-component': Components.MyFirstComponentAttributes;
   }
 
+
+  interface HTMLOrkDatepickerElement extends Components.OrkDatepicker, HTMLStencilElement {}
+  var HTMLOrkDatepickerElement: {
+    prototype: HTMLOrkDatepickerElement;
+    new (): HTMLOrkDatepickerElement;
+  };
 
   interface HTMLMyFirstComponentElement extends Components.MyFirstComponent, HTMLStencilElement {}
   var HTMLMyFirstComponentElement: {
@@ -36,10 +51,12 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'ork-datepicker': HTMLOrkDatepickerElement
     'my-first-component': HTMLMyFirstComponentElement
   }
 
   interface ElementTagNameMap {
+    'ork-datepicker': HTMLOrkDatepickerElement;
     'my-first-component': HTMLMyFirstComponentElement;
   }
 
