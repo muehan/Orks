@@ -12,6 +12,7 @@ export class OrkDatepicker {
     @State() dialog: Array<object> = [];
 
     private dialogVisible: boolean = false;
+    private date: Date = new Date();
 
     componentWillLoad() {
         this.renderDialog();
@@ -35,7 +36,7 @@ export class OrkDatepicker {
         this.dialog = dialog;
     }
 
-    createTableHeader(){
+    createTableHeader() {
         return (
             <tr>
                 <th>M</th>
@@ -52,20 +53,75 @@ export class OrkDatepicker {
     loadDialog() {
         return (
             <div>
+                <h3>{this.getCurrentMonth()}</h3>
                 <table class="dialog-table">
-                   {this.createTableHeader()}
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                    </tr>
+                    {this.createTableHeader()}
+                    {this.createTableBody()}
                 </table>
             </div>
         )
+    }
+
+    getCurrentMonth(): any {
+        switch (this.date.getMonth()) {
+            case 0:
+                return 'January';
+            case 1:
+                return 'February';
+            case 2:
+                return 'March';
+            case 3:
+                return 'April';
+            case 4:
+                return 'Mai';
+            case 5:
+                return 'June';
+            case 6:
+                return 'July';
+            case 7:
+                return 'August';
+            case 8:
+                return 'Septembre';
+            case 9:
+                return 'October';
+            case 10:
+                return 'November';
+            case 11:
+                return 'December'
+        }
+
+        throw new Error('Argument Exception');
+    }
+
+    createTableBody() {
+
+        let map: string[][] = this.createMonthTable();
+
+        let table = [];
+
+        for(var i = 0; i < map.length; i++) {
+            let line = map[i];
+            table.push('<tr>');
+            for(var j = 0; j < line.length; j++) {
+                table.push(<td>{map[i][j]}</td>)
+            }
+            table.push('</tr>');
+        }
+
+        return table;
+    }
+
+    createMonthTable(): any {
+        let map: string[][] = new Array<Array<string>>();
+
+        return map;
+    }
+
+    getLastDayOfMonth(): any {
+        var month = this.getCurrentMonth();
+        var day = new Date(2008, month + 1, 0);
+
+        return day
     }
 
     render() {
