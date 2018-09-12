@@ -51,7 +51,13 @@ export class OrkDatepicker {
     loadDialog() {
         return (
             <div class="date-dialog">
-                <h4 class="dialog-month">{this.getCurrentMonth()}</h4>
+                <div class="month-navigation">
+                    <h4 class="dialog-month">
+                        <p onClick={() => this.previousMonth()} class="arrow-left">&gt;</p>
+                        {this.getCurrentMonth()}
+                        <p onClick={() => this.nextMonth()} class="arrow-right">&lt;</p>
+                    </h4>
+                </div>
                 <table class="dialog-table">
                     {this.createTableHeader()}
                     {this.createTableBody()}
@@ -60,7 +66,15 @@ export class OrkDatepicker {
         )
     }
 
-    getCurrentMonth(): any {
+    previousMonth() {
+        this.date.setMonth(this.date.getMonth() -1);
+    }
+
+    nextMonth() {
+        this.date.setMonth(this.date.getMonth() +1);
+    }
+
+    getCurrentMonth() {
         switch (this.date.getMonth()) {
             case 0:
                 return 'January';
