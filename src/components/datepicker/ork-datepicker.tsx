@@ -67,11 +67,11 @@ export class OrkDatepicker {
     }
 
     previousMonth() {
-        this.date.setMonth(this.date.getMonth() -1);
+        this.date.setMonth(this.date.getMonth() - 1);
     }
 
     nextMonth() {
-        this.date.setMonth(this.date.getMonth() +1);
+        this.date.setMonth(this.date.getMonth() + 1);
     }
 
     getCurrentMonth() {
