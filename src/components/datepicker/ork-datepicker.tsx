@@ -50,8 +50,8 @@ export class OrkDatepicker {
 
     loadDialog() {
         return (
-            <div>
-                <h3>{this.getCurrentMonth()}</h3>
+            <div class="date-dialog">
+                <h4 class="dialog-month">{this.getCurrentMonth()}</h4>
                 <table class="dialog-table">
                     {this.createTableHeader()}
                     {this.createTableBody()}
@@ -154,7 +154,7 @@ export class OrkDatepicker {
 
     render() {
         return (
-            <div>
+            <div class="container">
                 {this.dialog}
             </div>
         );
