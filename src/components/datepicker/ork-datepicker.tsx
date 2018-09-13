@@ -13,7 +13,7 @@ export class OrkDatepicker {
     // private selectedDate: string = `${this.date.getFullYear()}-${this.date.getMonth()+1}-${this.date.getDate()}`;
 
     get selectedDate() {
-        return `${this.date.getFullYear()}-${this.date.getMonth()+1}-${this.date.getDate()}`;
+        return `${this.date.getFullYear()}-${this.date.getMonth() + 1}-${this.date.getDate()}`;
     }
 
     componentWillLoad() {
@@ -63,7 +63,9 @@ export class OrkDatepicker {
                 </div>
                 <table class="dialog-table">
                     {this.createTableHeader()}
-                    {this.createTableBody()}
+                    <tbody>
+                        {this.createTableBody()}
+                    </tbody>
                 </table>
             </div>
         )
@@ -127,18 +129,16 @@ export class OrkDatepicker {
         let tableLine = [];
         for (var j = 0; j < line.length; j++) {
             var day = map[i][j];
-            tableLine.push(<td onClick={() => this.changeDateSelected(day)}>{day}</td>)
+            tableLine.push(<td id={day} onClick={(event) => this.changeDateSelected(event)}>{day}</td>)
         }
 
         return tableLine;
     }
 
-    changeDateSelected(day: string): any {
-        if (day) {
-            console.log(day);
-            console.log(this.date);
-            this.date.setDate(Number(day));
-            console.log(this.date);
+    changeDateSelected(event: Event): any {
+        var element: Element = event.srcElement;
+        if (element) {
+            this.date.setDate(Number(element.id));
             this.dialogVisible = false;
             this.renderDialog();
         }
