@@ -8,9 +8,13 @@ export class OrkDatepicker {
 
     @State() dialog: Array<object> = [];
 
-    private selectedDate: string = `${new Date(1970, 1, 1).getFullYear()}-${new Date(1970, 1, 1).getMonth()}-${new Date(1970, 1, 1).getDay()}`;
     private dialogVisible: boolean = false;
     private date: Date = new Date();
+    // private selectedDate: string = `${this.date.getFullYear()}-${this.date.getMonth()+1}-${this.date.getDate()}`;
+
+    get selectedDate() {
+        return `${this.date.getFullYear()}-${this.date.getMonth()+1}-${this.date.getDate()}`;
+    }
 
     componentWillLoad() {
         this.renderDialog();
@@ -22,6 +26,7 @@ export class OrkDatepicker {
     }
 
     renderDialog() {
+
         let dialog = [];
         dialog.push(<input type="text" onClick={() => this.openDialog()} value={this.selectedDate}></input>)
 
@@ -65,16 +70,12 @@ export class OrkDatepicker {
     }
 
     previousMonth() {
-        console.log(this.date);
         this.date.setMonth(this.date.getMonth() - 1);
-        console.log(this.date);
         this.renderDialog();
     }
 
     nextMonth() {
-        console.log(this.date);
         this.date.setMonth(this.date.getMonth() + 1);
-        console.log(this.date);
         this.renderDialog();
     }
 
@@ -125,16 +126,20 @@ export class OrkDatepicker {
     renderLine(line: string[], map: string[][], i: number): any {
         let tableLine = [];
         for (var j = 0; j < line.length; j++) {
-            tableLine.push(<td onClick={() => this.changeDateSelected(map[i][j], j)}>{map[i][j]}</td>)
+            var day = map[i][j];
+            tableLine.push(<td onClick={() => this.changeDateSelected(day)}>{day}</td>)
         }
 
         return tableLine;
     }
 
-    changeDateSelected(day: string, j: number): any {
-        console.log(j);
+    changeDateSelected(day: string): any {
         if (day) {
+            console.log(day);
+            console.log(this.date);
             this.date.setDate(Number(day));
+            console.log(this.date);
+            this.dialogVisible = false;
             this.renderDialog();
         }
     }
