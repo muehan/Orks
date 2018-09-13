@@ -30,17 +30,17 @@
     }
     
     .arrow-left {
-        float: right;
-        margin-top: 1px;
-        margin-bottom: 0;
-        margin-right: 2px;
-    }
-    
-    .arrow-right {
         float: left;
         margin-top: 1px;
         margin-bottom: 0;
         margin-left: 2px;
+    }
+    
+    .arrow-right {
+        float: right;
+        margin-top: 1px;
+        margin-bottom: 0;
+        margin-right: 2px;
     }
     
     .month-navigation {

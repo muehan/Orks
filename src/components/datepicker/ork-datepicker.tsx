@@ -1,4 +1,4 @@
-import { Component, Prop, State } from '@stencil/core';
+import { Component, State } from '@stencil/core';
 
 @Component({
     tag: 'ork-datepicker',
@@ -6,11 +6,9 @@ import { Component, Prop, State } from '@stencil/core';
 })
 export class OrkDatepicker {
 
-    // Indicate that name should be a public property on the component
-    @Prop() name: string;
-
     @State() dialog: Array<object> = [];
 
+    private selectedDate: string = `${new Date(1970, 1, 1).getFullYear()}-${new Date(1970, 1, 1).getMonth()}-${new Date(1970, 1, 1).getDay()}`;
     private dialogVisible: boolean = false;
     private date: Date = new Date();
 
@@ -25,7 +23,7 @@ export class OrkDatepicker {
 
     renderDialog() {
         let dialog = [];
-        dialog.push(<input type="text" onClick={() => this.openDialog()}></input>)
+        dialog.push(<input type="text" onClick={() => this.openDialog()} value={this.selectedDate}></input>)
 
         if (this.dialogVisible) {
             dialog.push(this.loadDialog());
@@ -53,9 +51,9 @@ export class OrkDatepicker {
             <div class="date-dialog">
                 <div class="month-navigation">
                     <h4 class="dialog-month">
-                        <p onClick={() => this.previousMonth()} class="arrow-left">&gt;</p>
+                        <p onClick={() => this.nextMonth()} class="arrow-right">&gt;</p>
                         {this.getCurrentMonth()}
-                        <p onClick={() => this.nextMonth()} class="arrow-right">&lt;</p>
+                        <p onClick={() => this.previousMonth()} class="arrow-left">&lt;</p>
                     </h4>
                 </div>
                 <table class="dialog-table">
@@ -67,11 +65,17 @@ export class OrkDatepicker {
     }
 
     previousMonth() {
+        console.log(this.date);
         this.date.setMonth(this.date.getMonth() - 1);
+        console.log(this.date);
+        this.renderDialog();
     }
 
     nextMonth() {
+        console.log(this.date);
         this.date.setMonth(this.date.getMonth() + 1);
+        console.log(this.date);
+        this.renderDialog();
     }
 
     getCurrentMonth() {
@@ -120,12 +124,19 @@ export class OrkDatepicker {
 
     renderLine(line: string[], map: string[][], i: number): any {
         let tableLine = [];
-
         for (var j = 0; j < line.length; j++) {
-            tableLine.push(<td>{map[i][j]}</td>)
+            tableLine.push(<td onClick={() => this.changeDateSelected(map[i][j], j)}>{map[i][j]}</td>)
         }
 
         return tableLine;
+    }
+
+    changeDateSelected(day: string, j: number): any {
+        console.log(j);
+        if (day) {
+            this.date.setDate(Number(day));
+            this.renderDialog();
+        }
     }
 
     createMonthTable(): any {

@@ -11,12 +11,8 @@ import '@stencil/core';
 
 export namespace Components {
 
-  interface OrkDatepicker {
-    'name': string;
-  }
-  interface OrkDatepickerAttributes extends StencilHTMLAttributes {
-    'name'?: string;
-  }
+  interface OrkDatepicker {}
+  interface OrkDatepickerAttributes extends StencilHTMLAttributes {}
 
   interface MyFirstComponent {
     'name': string;
