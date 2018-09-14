@@ -12,6 +12,8 @@ export class OrkDatepicker {
     private date: Date = new Date();
     // private selectedDate: string = `${this.date.getFullYear()}-${this.date.getMonth()+1}-${this.date.getDate()}`;
 
+    private const monthStrings = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
     get selectedDate() {
         return `${this.date.getFullYear()}-${this.date.getMonth() + 1}-${this.date.getDate()}`;
     }
@@ -82,34 +84,7 @@ export class OrkDatepicker {
     }
 
     getCurrentMonth() {
-        switch (this.date.getMonth()) {
-            case 0:
-                return 'January';
-            case 1:
-                return 'February';
-            case 2:
-                return 'March';
-            case 3:
-                return 'April';
-            case 4:
-                return 'Mai';
-            case 5:
-                return 'June';
-            case 6:
-                return 'July';
-            case 7:
-                return 'August';
-            case 8:
-                return 'Septembre';
-            case 9:
-                return 'October';
-            case 10:
-                return 'November';
-            case 11:
-                return 'December'
-        }
-
-        throw new Error('Argument Exception');
+        return this.monthStrings[this.date.getMonth()];
     }
 
     createTableBody() {
