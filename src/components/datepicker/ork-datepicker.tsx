@@ -12,7 +12,7 @@ export class OrkDatepicker {
     private date: Date = new Date();
     // private selectedDate: string = `${this.date.getFullYear()}-${this.date.getMonth()+1}-${this.date.getDate()}`;
 
-    private const monthStrings = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    private monthStrings: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     get selectedDate() {
         return `${this.date.getFullYear()}-${this.date.getMonth() + 1}-${this.date.getDate()}`;
