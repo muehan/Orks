@@ -30,7 +30,7 @@ export class OrkDatepicker {
     renderDialog() {
 
         let dialog = [];
-        dialog.push(<input type="text" onClick={() => this.openDialog()} value={this.selectedDate}></input>)
+        dialog.push(<input class="datepicker-input" type="text" onClick={() => this.openDialog()} value={this.selectedDate}></input>)
 
         if (this.dialogVisible) {
             dialog.push(this.loadDialog());
@@ -159,8 +159,18 @@ export class OrkDatepicker {
 
     render() {
         return (
-            <div class="container">
-                {this.dialog}
+            <div class="ork-form-field-wrapper">
+                <div class="ork-form-filed-input">
+                    <div class="ork-form-field">
+                        {this.dialog}
+                    </div>
+                    <div class="ork-form-field-icon">
+                        <i class="material-icons md-16">
+                            calendar_today
+                        </i>
+                    </div>
+                </div>
+                <div class="ork-form-underline"></div>
             </div>
         );
     }
