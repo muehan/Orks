@@ -39,6 +39,17 @@
         width: 100%;
     }
     
+    .ork-table-header {
+        font-size: 10px;
+        color: #888888;
+        text-align: center;
+    }
+    
+    .ork-table-header>th {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
     .datepicker-input {
         width: 175px;
         font-size: 16px;
@@ -76,6 +87,20 @@
     
     .date-dialog {
         width: 100%;
+    }
+    
+    .ork-table-header-divider {
+        position: relative;
+        height: 1px;
+    }
+    
+    .ork-table-header-divider::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -8px;
+        right: -8px;
+        height: 1px;
     }
     
     .dialog-month {

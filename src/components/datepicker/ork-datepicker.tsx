@@ -49,7 +49,7 @@ export class OrkDatepicker {
 
     createTableHeader() {
         return (
-            <tr>
+            <tr class="ork-table-header">
                 <th>M</th>
                 <th>D</th>
                 <th>M</th>
@@ -57,6 +57,15 @@ export class OrkDatepicker {
                 <th>F</th>
                 <th>S</th>
                 <th>S</th>
+            </tr>
+        )
+    }
+
+    createTableHeaderDivider(): any {
+        return (
+            <tr>
+                <th aria-hidden="true" class="ork-table-header-divider">
+                </th>
             </tr>
         )
     }
@@ -73,6 +82,7 @@ export class OrkDatepicker {
                 </div>
                 <table class="dialog-table">
                     {this.createTableHeader()}
+                    {this.createTableHeaderDivider()}
                     <tbody>
                         {this.createTableBody()}
                     </tbody>
