@@ -7,6 +7,7 @@ import { Component, State } from '@stencil/core';
 export class OrkDatepicker {
 
     @State() dialog: Array<object> = [];
+    @State() pickerWindow: Array<object> = [];
 
     private dialogVisible: boolean = false;
     private date: Date = new Date();
@@ -20,21 +21,28 @@ export class OrkDatepicker {
 
     componentWillLoad() {
         this.renderDialog();
+        this.renderPickerWindow();
+    }
+
+    renderPickerWindow() {
+        let pickerWindow = [];
+
+        if (this.dialogVisible) {
+            pickerWindow.push(this.loadDialog());
+        }
+
+        this.pickerWindow = pickerWindow;
     }
 
     openDialog() {
         this.dialogVisible = !this.dialogVisible;
-        this.renderDialog();
+        this.renderPickerWindow();
     }
 
     renderDialog() {
 
         let dialog = [];
         dialog.push(<input class="datepicker-input" type="text" onClick={() => this.openDialog()} value={this.selectedDate}></input>)
-
-        if (this.dialogVisible) {
-            dialog.push(this.loadDialog());
-        }
 
         this.dialog = dialog;
     }
@@ -76,11 +84,13 @@ export class OrkDatepicker {
     previousMonth() {
         this.date.setMonth(this.date.getMonth() - 1);
         this.renderDialog();
+        this.renderPickerWindow();
     }
 
     nextMonth() {
         this.date.setMonth(this.date.getMonth() + 1);
         this.renderDialog();
+        this.renderPickerWindow();
     }
 
     getCurrentMonth() {
@@ -116,6 +126,7 @@ export class OrkDatepicker {
             this.date.setDate(Number(element.id));
             this.dialogVisible = false;
             this.renderDialog();
+            this.renderPickerWindow();
         }
     }
 
@@ -171,6 +182,7 @@ export class OrkDatepicker {
                     </div>
                 </div>
                 <div class="ork-form-underline"></div>
+                {this.pickerWindow}
             </div>
         );
     }
