@@ -42,7 +42,7 @@ export class OrkDatepicker {
     renderDialog() {
 
         let dialog = [];
-        dialog.push(<input class="datepicker-input" type="text" onClick={() => this.openDialog()} value={this.selectedDate}></input>)
+        dialog.push(<input class="datepicker-input" type="text" value={this.selectedDate}></input>)
 
         this.dialog = dialog;
     }
@@ -171,7 +171,7 @@ export class OrkDatepicker {
     render() {
         return (
             <div class="ork-form-field-wrapper">
-                <div class="ork-form-filed-input">
+                <div class="ork-form-filed-input" onClick={() => this.openDialog()}>
                     <div class="ork-form-field">
                         {this.dialog}
                     </div>

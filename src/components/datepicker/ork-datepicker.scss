@@ -4,39 +4,41 @@
         padding-bottom: 20px;
         text-align: left;
     }
-
+    
     .ork-form-field {
         display: inline-flex;
         width: 175px;
     }
-
+    
     .ork-input-icon {
         font-size: 16px;
     }
-
-    .material-icons.md-16 { font-size: 16px; }
-
+    
+    .material-icons.md-16 {
+        font-size: 16px;
+    }
+    
     .ork-form-filed-input {
         display: inline-flex;
         align-items: baseline;
         box-sizing: border-box;
         width: 100%;
     }
-
+    
     .ork-form-field-icon {
         white-space: nowrap;
         flex: none;
         position: relative;
         font-size: 16px;
     }
-
+    
     .ork-form-underline {
         height: 1px;
         color: #2c2c2c;
         background-color: #2c2c2c;
         width: 100%;
     }
-
+    
     .datepicker-input {
         width: 175px;
         font-size: 16px;
@@ -60,7 +62,7 @@
         border-top-style: none;
         border-top-width: 0px;
     }
-
+    
     .dialog-table {
         width: 100%;
         border-color: darkgray;
@@ -104,4 +106,8 @@
     
     .month-navigation {
         display: inline;
+    }
+    
+    input:focus {
+        outline: none;
     }
