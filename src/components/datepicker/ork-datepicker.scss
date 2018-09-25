@@ -76,9 +76,6 @@
     
     .dialog-table {
         width: 100%;
-        border-color: darkgray;
-        border-style: solid;
-        border-width: 1px;
     }
     
     .dialog-table>tbody>tr>td {
@@ -86,7 +83,11 @@
     }
     
     .date-dialog {
-        width: 100%;
+        width: 300px;
+        padding-top: 15px;
+        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+        height: 350px;
+        border-radius: 2px;
     }
     
     .ork-table-header-divider {
@@ -102,6 +103,14 @@
         right: -8px;
         height: 1px;
     }
+
+    .ork-date-cell {
+        line-height: 0;
+        text-align: center;
+        height: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
     
     .dialog-month {
         padding-bottom: 3px;
@@ -109,10 +118,6 @@
         margin-top: 5px;
         margin-bottom: 0;
         text-align: center;
-        border-color: darkgray;
-        border-style: solid;
-        border-width: 1px;
-        border-bottom: none;
     }
     
     .arrow-left {

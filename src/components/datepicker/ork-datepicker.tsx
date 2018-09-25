@@ -124,7 +124,7 @@ export class OrkDatepicker {
         let tableLine = [];
         for (var j = 0; j < line.length; j++) {
             var day = map[i][j];
-            tableLine.push(<td id={day} onClick={(event) => this.changeDateSelected(event)}>{day}</td>)
+            tableLine.push(<td id={day} onClick={(event) => this.changeDateSelected(event)}><div class="ork-date-cell">{day}</div></td>)
         }
 
         return tableLine;
