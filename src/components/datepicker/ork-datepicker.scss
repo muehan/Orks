@@ -78,10 +78,6 @@
         width: 100%;
     }
     
-    .dialog-table>tbody>tr>td {
-        text-align: center;
-    }
-    
     .date-dialog {
         width: 300px;
         padding-top: 15px;
@@ -93,14 +89,27 @@
     .ork-table-header-divider {
         position: relative;
         height: 1px;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0px;
+            right: 0px;
+            height: 300px;
+          }
     }
     
-    .ork-table-header-divider::after {
-        content: '';
+    .ork-table-header-divider:after {
+        background-attachment:scroll;
+        background-clip:border-box;
+        background-color:rgba(0, 0, 0, 0.12);
+        background-image:none;
+        background-origin:padding-box;
+        background-position-x:0%;
+        background-position-y:0%;
+        background-size:auto;
         position: absolute;
         top: 0;
-        left: -8px;
-        right: -8px;
         height: 1px;
     }
 

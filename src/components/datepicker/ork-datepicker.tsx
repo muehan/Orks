@@ -64,7 +64,7 @@ export class OrkDatepicker {
     createTableHeaderDivider(): any {
         return (
             <tr>
-                <th aria-hidden="true" class="ork-table-header-divider">
+                <th aria-hidden="true" class="ork-table-header-divider" colSpan={7}>
                 </th>
             </tr>
         )
