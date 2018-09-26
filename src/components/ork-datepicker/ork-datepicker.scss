@@ -76,31 +76,49 @@
     
     .dialog-table {
         width: 100%;
-        border-color: darkgray;
-        border-style: solid;
-        border-width: 1px;
-    }
-    
-    .dialog-table>tbody>tr>td {
-        text-align: center;
     }
     
     .date-dialog {
-        width: 100%;
+        width: 300px;
+        padding-top: 15px;
+        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+        height: 350px;
+        border-radius: 2px;
     }
     
     .ork-table-header-divider {
         position: relative;
         height: 1px;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0px;
+            right: 0px;
+            height: 300px;
+          }
     }
     
-    .ork-table-header-divider::after {
-        content: '';
+    .ork-table-header-divider:after {
+        background-attachment:scroll;
+        background-clip:border-box;
+        background-color:rgba(0, 0, 0, 0.12);
+        background-image:none;
+        background-origin:padding-box;
+        background-position-x:0%;
+        background-position-y:0%;
+        background-size:auto;
         position: absolute;
         top: 0;
-        left: -8px;
-        right: -8px;
         height: 1px;
+    }
+
+    .ork-date-cell {
+        line-height: 0;
+        text-align: center;
+        height: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     
     .dialog-month {
@@ -109,10 +127,6 @@
         margin-top: 5px;
         margin-bottom: 0;
         text-align: center;
-        border-color: darkgray;
-        border-style: solid;
-        border-width: 1px;
-        border-bottom: none;
     }
     
     .arrow-left {
