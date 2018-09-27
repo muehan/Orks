@@ -7,12 +7,12 @@
 import '@stencil/core';
 
 
+import {
+  OrkTableColumn,
+} from './components/ork-table/orkTableColumn';
 
 
 export namespace Components {
-
-  interface OrkDatepicker {}
-  interface OrkDatepickerAttributes extends StencilHTMLAttributes {}
 
   interface MyFirstComponent {
     'name': string;
@@ -20,25 +20,33 @@ export namespace Components {
   interface MyFirstComponentAttributes extends StencilHTMLAttributes {
     'name'?: string;
   }
+
+  interface OrkDatepicker {}
+  interface OrkDatepickerAttributes extends StencilHTMLAttributes {}
+
+  interface OrkTable {
+    'columns': Array<OrkTableColumn>;
+    'dataSource': Array<any>;
+  }
+  interface OrkTableAttributes extends StencilHTMLAttributes {
+    'columns'?: Array<OrkTableColumn>;
+    'dataSource'?: Array<any>;
+  }
 }
 
 declare global {
   interface StencilElementInterfaces {
-    'OrkDatepicker': Components.OrkDatepicker;
     'MyFirstComponent': Components.MyFirstComponent;
+    'OrkDatepicker': Components.OrkDatepicker;
+    'OrkTable': Components.OrkTable;
   }
 
   interface StencilIntrinsicElements {
-    'ork-datepicker': Components.OrkDatepickerAttributes;
     'my-first-component': Components.MyFirstComponentAttributes;
+    'ork-datepicker': Components.OrkDatepickerAttributes;
+    'ork-table': Components.OrkTableAttributes;
   }
 
-
-  interface HTMLOrkDatepickerElement extends Components.OrkDatepicker, HTMLStencilElement {}
-  var HTMLOrkDatepickerElement: {
-    prototype: HTMLOrkDatepickerElement;
-    new (): HTMLOrkDatepickerElement;
-  };
 
   interface HTMLMyFirstComponentElement extends Components.MyFirstComponent, HTMLStencilElement {}
   var HTMLMyFirstComponentElement: {
@@ -46,14 +54,28 @@ declare global {
     new (): HTMLMyFirstComponentElement;
   };
 
+  interface HTMLOrkDatepickerElement extends Components.OrkDatepicker, HTMLStencilElement {}
+  var HTMLOrkDatepickerElement: {
+    prototype: HTMLOrkDatepickerElement;
+    new (): HTMLOrkDatepickerElement;
+  };
+
+  interface HTMLOrkTableElement extends Components.OrkTable, HTMLStencilElement {}
+  var HTMLOrkTableElement: {
+    prototype: HTMLOrkTableElement;
+    new (): HTMLOrkTableElement;
+  };
+
   interface HTMLElementTagNameMap {
-    'ork-datepicker': HTMLOrkDatepickerElement
     'my-first-component': HTMLMyFirstComponentElement
+    'ork-datepicker': HTMLOrkDatepickerElement
+    'ork-table': HTMLOrkTableElement
   }
 
   interface ElementTagNameMap {
-    'ork-datepicker': HTMLOrkDatepickerElement;
     'my-first-component': HTMLMyFirstComponentElement;
+    'ork-datepicker': HTMLOrkDatepickerElement;
+    'ork-table': HTMLOrkTableElement;
   }
 
 

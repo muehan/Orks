@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <title>Orks Web Component Library</title>
-        <script src="/build/mycomponent.js"></script>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Orks Web Component Library</title>
+    <script src="/build/mycomponent.js"></script>
+</head>
 
-    <body>
-        <my-first-component name="Max"></my-first-component>
-        <ork-datepicker></ork-datepicker>
-        <ork-table></ork-table>
-    </body>
+<body>
+    <my-first-component name="Max"></my-first-component>
+    <ork-datepicker></ork-datepicker>
+    <ork-table></ork-table>
+</body>
+
+<script>
+    var tableCoumns = [
+        { name: 'testName1', propertyName: 'testValue1' },
+        { name: 'testName2', propertyName: 'testValue2' },
+    ];
+
+    var tablData = [
+        { testValue1: 'test content0', testValue2: 'other test content' },
+        { testValue1: 'test content1', testValue2: 'other test content' },
+        { testValue1: 'test content2', testValue2: 'other test content' },
+    ]
+
+    var tableEl = document.querySelector("ork-table");
+    tableEl.columns = tableCoumns;
+    tableEl.dataSource = tablData;
+
+
+</script>
 
 </html>
