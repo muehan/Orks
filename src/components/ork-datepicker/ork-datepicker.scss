@@ -79,9 +79,11 @@
     }
     
     .date-dialog {
+        position: absolute;
+        background-color: #FFFFFF;
         width: 300px;
         padding-top: 15px;
-        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
         height: 350px;
         border-radius: 2px;
     }
@@ -96,23 +98,23 @@
             left: 0px;
             right: 0px;
             height: 300px;
-          }
+        }
     }
     
     .ork-table-header-divider:after {
-        background-attachment:scroll;
-        background-clip:border-box;
-        background-color:rgba(0, 0, 0, 0.12);
-        background-image:none;
-        background-origin:padding-box;
-        background-position-x:0%;
-        background-position-y:0%;
-        background-size:auto;
+        background-attachment: scroll;
+        background-clip: border-box;
+        background-color: rgba(0, 0, 0, 0.12);
+        background-image: none;
+        background-origin: padding-box;
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-size: auto;
         position: absolute;
         top: 0;
         height: 1px;
     }
-
+    
     .ork-date-cell {
         line-height: 0;
         text-align: center;
