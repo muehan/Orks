@@ -10,28 +10,50 @@
 </head>
 
 <body>
-    <my-first-component name="Max" age="22"></my-first-component>
-    <ork-datepicker></ork-datepicker>
-    <ork-table></ork-table>
+    <div style="width: 80%; margin: 0 auto; margin-top: 40px;">
+        <h1>Ork Components</h1>
+        <div>
+            <hr />
+            <h3>My First Component</h3>
+            <my-first-component name="Max" age="22"></my-first-component>
+            <hr />
+        </div>
+        <div>
+            <h3>Ork Datepicker</h3>
+            <ork-datepicker></ork-datepicker>
+            <hr />
+        </div>
+        <div>
+            <h3>Ork Table</h3>
+            <ork-table></ork-table>
+            <hr />
+        </div>
+    </div>
 </body>
 
 <script>
-    var tableCoumns = [
-        { name: 'testName1', propertyName: 'testValue1' },
-        { name: 'testName2', propertyName: 'testValue2' },
-    ];
+    var tableCoumns = [{
+        name: 'testName1',
+        propertyName: 'testValue1'
+    }, {
+        name: 'testName2',
+        propertyName: 'testValue2'
+    }, ];
 
-    var tablData = [
-        { testValue1: 'test content0', testValue2: 'other test content' },
-        { testValue1: 'test content1', testValue2: 'other test content' },
-        { testValue1: 'test content2', testValue2: 'other test content' },
-    ]
+    var tablData = [{
+        testValue1: 'test content0',
+        testValue2: 'other test content'
+    }, {
+        testValue1: 'test content1',
+        testValue2: 'other test content'
+    }, {
+        testValue1: 'test content2',
+        testValue2: 'other test content'
+    }, ]
 
     var tableEl = document.querySelector("ork-table");
     tableEl.columns = tableCoumns;
     tableEl.dataSource = tablData;
-
-
 </script>
 
 </html>

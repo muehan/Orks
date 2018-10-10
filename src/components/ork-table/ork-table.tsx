@@ -18,7 +18,7 @@ export class OrkDatepicker {
 
     renderTable() {
         let state = [];
-        state.push(<table>{this.renderHeader()}{this.renderBody()}</table>)
+        state.push(<table class="ork-table">{this.renderHeader()}{this.renderBody()}</table>)
 
         this.tableState = state;
     }
@@ -33,27 +33,27 @@ export class OrkDatepicker {
 
     renderHeaderRow() {
         return (
-            <tr>
-                {this.columns.map(item => <th>{item.name}</th>)}
+            <tr class="ork-table-row">
+                {this.columns.map(item => <th class="ork-table-head-cell">{item.name}</th>)}
             </tr>
         )
     }
 
     renderBody() {
         return (
-            this.dataSource.map(line => <tr>{this.renderColumn(line)}</tr>)
+            this.dataSource.map(line => <tr class="ork-table-row">{this.renderColumn(line)}</tr>)
         )
     }
 
     renderColumn(line: any) {
         return (
-            this.columns.map(col => <td>{line[col.propertyName]}</td>)
+            this.columns.map(col => <td class="ork-table-cell">{line[col.propertyName]}</td>)
         )
     }
 
     render() {
         return (
-            <div class="ork-table">
+            <div class="ork-table-wrapper">
                 {this.tableState}
             </div>
         );
