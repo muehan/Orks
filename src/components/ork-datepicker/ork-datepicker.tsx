@@ -131,7 +131,7 @@ export class OrkDatepicker {
     }
 
     changeDateSelected(event: Event): any {
-        var element: Element = event.srcElement;
+        var element: Element = event.srcElement.parentElement;
         if (element) {
             this.date.setDate(Number(element.id));
             this.dialogVisible = false;
