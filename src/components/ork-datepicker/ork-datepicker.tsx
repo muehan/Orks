@@ -42,7 +42,7 @@ export class OrkDatepicker {
     renderDialog() {
 
         let dialog = [];
-        dialog.push(<input class="datepicker-input" type="text" value={this.selectedDate}></input>)
+        dialog.push(<input class="datepicker-input" type="text" value={this.selectedDate} onBlur={() => this.focusLost()}></input>)
 
         this.dialog = dialog;
     }
@@ -178,15 +178,21 @@ export class OrkDatepicker {
         return day.getDate();
     }
 
+    focusLost(): void {
+        console.log('focuslost');
+        this.dialogVisible = false;
+        this.renderPickerWindow();
+    }
+
     render() {
         return (
             <div class="ork-form-field-wrapper">
-                <div class="ork-form-filed-input" onClick={() => this.openDialog()}>
+                <div class="ork-form-filed-input">
                     <div class="ork-form-field">
                         {this.dialog}
                     </div>
                     <div class="ork-form-field-icon">
-                        <i class="material-icons md-16">
+                        <i class="material-icons md-16" onClick={() => this.openDialog()} onBlur={() => this.focusLost()}>
                             calendar_today
                         </i>
                     </div>
