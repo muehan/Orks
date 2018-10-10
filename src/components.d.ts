@@ -15,9 +15,11 @@ import {
 export namespace Components {
 
   interface MyFirstComponent {
+    'age': string;
     'name': string;
   }
   interface MyFirstComponentAttributes extends StencilHTMLAttributes {
+    'age'?: string;
     'name'?: string;
   }
 
