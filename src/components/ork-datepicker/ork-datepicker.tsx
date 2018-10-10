@@ -26,9 +26,6 @@ export class OrkDatepicker {
     }
 
     componentDidLoad() {
-        let iconElement = document.querySelector('#test2');
-        iconElement.addEventListener('focus', () => console.log('onFocus'), { capture: true });
-        iconElement.addEventListener('blur', () => console.log('onBlur'), { capture: true });
         document.addEventListener('click', (event) => {
             let eventTarget = event.target as HTMLElement;
             console.log(eventTarget.closest('.ork-form-field-wrapper'));
@@ -38,10 +35,8 @@ export class OrkDatepicker {
             }
             console.log('close the window');
             this.dialogVisible = false;
-            this.renderDialog();
-            this.render();
+            this.renderPickerWindow();
         });
-        // iconElement.addEventListener('click', () => console.log('click'));
     }
 
     renderPickerWindow() {
@@ -211,8 +206,8 @@ export class OrkDatepicker {
                     <div class="ork-form-field">
                         {this.dialog}
                     </div>
-                    <div class="ork-form-field-icon" id="test" onClick={() => this.openDialog()}>
-                         <i class="material-icons md-16" id="test2"> {/* onClick={() => this.openDialog()} */}
+                    <div class="ork-form-field-icon" onClick={() => this.openDialog()}>
+                         <i class="material-icons md-16"> {/* onClick={() => this.openDialog()} */}
                             calendar_today
                         </i>
                     </div>
